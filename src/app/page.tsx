@@ -55,6 +55,9 @@ export default function Home() {
       </main>
       <footer className="py-6 text-center text-xs text-zinc-400 dark:text-zinc-600 w-full">
         &copy; {new Date().getFullYear()} AI Quote Generator
+        <a href="https://github.com/kethirabalan/ai-quote-gen" className="text-blue-500 hover:text-blue-600"> GitHub</a>
+        <br />
+        created by <a href="https://github.com/kethirabalan" className="text-blue-500 hover:text-blue-600">Kethirabalan</a>
       </footer>
     </div>
   );
