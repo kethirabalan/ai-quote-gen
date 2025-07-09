@@ -29,9 +29,10 @@ export default function Header() {
   }, [dark]);
 
   return (
-    <header className="w-full flex items-center justify-between max-w-md mx-auto py-6 px-4">
+    <header className="max-w-md mx-auto py-6 px-4 text-blue-500">
       <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">AI Quote Generator</h1>
-      <button
+      <p className="text-sm text-gray-500 text-center">Generate a random quote with AI</p>
+      {/* <button
         aria-label="Toggle dark mode"
         className="ml-4 p-2 rounded-full border border-transparent hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         onClick={() => setDark((d) => !d)}
@@ -41,7 +42,7 @@ export default function Header() {
         ) : (
           <MoonIcon className="w-6 h-6 text-gray-700 dark:text-gray-200" />
         )}
-      </button>
-    </header>
+      </button> */}
+      </header>
   );
 } 
