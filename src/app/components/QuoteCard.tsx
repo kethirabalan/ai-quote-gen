@@ -12,7 +12,7 @@ interface QuoteCardProps {
 }
 
 export default function QuoteCard({ quote, author, loading, onGenerate }: QuoteCardProps) {
-  const [fade, setFade] = useState(false);
+  // const [fade, setFade] = useState(false);
 
   // Animate fade-in when quote changes
   // Use key on quote for re-mounting
