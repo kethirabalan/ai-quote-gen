@@ -5,11 +5,26 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 export default function Header() {
   const [dark, setDark] = useState(false);
 
+  // On mount, read theme from localStorage or system preference
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      setDark(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setDark(false);
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  // When dark changes, update localStorage and html class
   useEffect(() => {
     if (dark) {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [dark]);
 
