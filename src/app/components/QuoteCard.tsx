@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Copy, RefreshCw } from "lucide-react";
 import Button from "./Button";
+import { toast } from "sonner";
 
 interface QuoteCardProps {
   quote: string;
@@ -11,7 +12,6 @@ interface QuoteCardProps {
 }
 
 export default function QuoteCard({ quote, author, loading, onGenerate }: QuoteCardProps) {
-  const [copied, setCopied] = useState(false);
   const [fade, setFade] = useState(false);
 
   // Animate fade-in when quote changes
@@ -19,8 +19,7 @@ export default function QuoteCard({ quote, author, loading, onGenerate }: QuoteC
   
   const handleCopy = async () => {
     await navigator.clipboard.writeText(quote);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1200);
+    toast.success("Copied to clipboard!");
   };
 
   return (
@@ -44,9 +43,6 @@ export default function QuoteCard({ quote, author, loading, onGenerate }: QuoteC
           <Copy className="w-5 h-5" />
           <span className="sr-only">Copy</span>
         </button>
-        {copied && (
-          <span className="ml-2 text-green-600 dark:text-green-400 text-sm">Copied!</span>
-        )}
       </div>
     </div>
   );
